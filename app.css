@@ -1,0 +1,50 @@
+h1{
+    text-align:center;
+}
+#content{
+    position:absolute;
+    height: 1000px;
+    width: 500px;
+    display:flex;
+    text-align: center;
+    background-color: green;
+    left: calc(50% - 250px);
+
+}
+
+.test-container{
+    position: relative;
+    height: 50px;
+    width: 500px;
+    background-color: red;
+}
+
+.block-container{
+    position: relative;
+    display: flex;
+
+    background-color: aqua;
+    height: 50px;
+    width: 500px;
+    top: 10px;
+}
+
+.extra-blocks{
+    position:absolute;
+    height: 50px;
+    width: 500px;
+
+}
+
+.block{
+    position: relative;
+    background-color: #40739e;
+    border: 2px solid #487eb0;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
+
+.block-text{
+    color: black;
+}
