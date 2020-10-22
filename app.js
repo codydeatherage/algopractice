@@ -8,6 +8,23 @@ function shuffle(arr){
 
 shuffle(arr);
 console.log(arr);
+
+//Select element we want to attach things to
+const contentBody = document.querySelector('#content');
+
+//create new div for our first array
+let topDiv = document.createElement('div');
+topDiv.classList.add('row');
+contentBody.appendChild(topDiv);
+
+//create a block for each array index and apppend to topDiv
+/* for(let i = 0; i < arr.length; i++){
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('block');
+    newDiv.innerText = arr[i];
+    topDiv.appendChild(newDiv);
+} */
+
 function merge(arr, l, m , r){
     let n1 = m - l + 1;
     let n2 = r - m;
@@ -51,19 +68,45 @@ function merge(arr, l, m , r){
         k++;
     }
 }
-
+let leftCuts = [];
+let rightCuts = [];
 function mergeSort(arr, l, r){
     if(l < r){
         let m = Math.floor((l+r)/2);
+        for(let i = l; i <= r; i++){
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('block');
+            newDiv.innerText = arr[i];
+            topDiv.appendChild(newDiv);
+        }
+
+        leftCuts.push(arr.slice(l, m+1));
+        rightCuts.push(arr.slice(m+1, r+1));
         mergeSort(arr, l, m);
         mergeSort(arr, m + 1, r);
 
         merge(arr, l, m, r);
     }
 }
+console.log('LeftCuts? ', leftCuts);
+console.log('RightCuts?', rightCuts);
+
+
 
 mergeSort(arr, 0, arr.length - 1);
+/* function highlightMid(m){ */
+/*     const allBlocks = document.querySelectorAll('.block');
+    const allBlocksArr = Array.from(allBlocks);
+    for(let i = 0;i < allBlocksArr.length; i++){
+        console.log(allBlocksArr[i].innerText);
+    } */
+
 console.log(arr);
+
+
+
+
+
 /* function bubbleSort(arr){
     let newArr = [...arr];
     let allArr = [];
